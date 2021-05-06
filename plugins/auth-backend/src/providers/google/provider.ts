@@ -17,6 +17,7 @@
 import express from 'express';
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+import { TokenIssuer } from '../../identity';
 import { CatalogIdentityClient, getEntityClaims } from '../../lib/catalog';
 import {
   encodeState,
@@ -26,8 +27,8 @@ import {
   OAuthProviderOptions,
   OAuthRefreshRequest,
   OAuthResponse,
-  OAuthStartRequest,
   OAuthResult,
+  OAuthStartRequest,
 } from '../../lib/oauth';
 import {
   executeFetchUserProfileStrategy,
@@ -39,11 +40,10 @@ import {
 } from '../../lib/passport';
 import {
   AuthProviderFactory,
+  ProfileTransform,
   RedirectInfo,
   SignInResolver,
-  ProfileTransform,
 } from '../types';
-import { TokenIssuer } from '../../identity';
 
 type PrivateInfo = {
   refreshToken: string;
@@ -205,7 +205,7 @@ export type GoogleProviderOptions = {
      * Maps an auth result to a Backstage identity for the user.
      *
      * Set to `'email'` to use the default email-based sign in resolver, which will search
-     * for the catalog for a single user entity that has a matching `google.com/email` annotation.
+     * the catalog for a single user entity that has a matching `google.com/email` annotation.
      */
     resolver?: 'email' | SignInResolver<OAuthResult>;
   };
