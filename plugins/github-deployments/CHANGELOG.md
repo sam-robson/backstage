@@ -1,5 +1,13 @@
 # @backstage/plugin-github-deployments
 
+## 0.1.6
+
+### Patch Changes
+
+- fa69982fb: Support GHE by properly parsing enterprise instance hosts
+- Updated dependencies [68fdbf014]
+  - @backstage/catalog-model@0.7.10
+
 ## 0.1.5
 
 ### Patch Changes

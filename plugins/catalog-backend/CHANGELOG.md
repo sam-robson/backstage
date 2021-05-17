@@ -1,5 +1,13 @@
 # @backstage/plugin-catalog-backend
 
+## 0.9.1
+
+### Patch Changes
+
+- 62579ced6: Skip adding entries to the `entities_search` table if their `key` exceeds a length limit.
+- Updated dependencies [68fdbf014]
+  - @backstage/catalog-model@0.7.10
+
 ## 0.9.0
 
 ### Minor Changes
